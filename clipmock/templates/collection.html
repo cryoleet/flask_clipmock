@@ -1,0 +1,64 @@
+{% extends "layout.html" %} {% block title %} collections {% endblock %} {%
+block body %}
+<main>
+  <div
+    class="head d-flex flex-column flex-sm-row align-items-center justify-content-around mt-2 mb-3 pb-4 text-center border-2 border-bottom"
+  >
+    <span class="display-6 mb-3 mb-sm-0">
+      Hi {{ username }}! Here's your collections
+    </span>
+    <form action="/download" method="post">
+      <button class="btn btn-dark d-flex align-items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-file-earmark-arrow-down me-1"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z"
+          />
+          <path
+            d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"
+          />
+        </svg>
+        Download as zip
+      </button>
+    </form>
+  </div>
+  <div class="container">
+    <div class="row">
+      {% for img in list %}
+      <div
+        class="col-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center mb-5"
+      >
+        <div class="img-parent">
+          <img src="{{ img }}" class="img-fluid" alt="collection_image" />
+          <form action="/delete" method="post">
+            <input
+              type="text"
+              name="delete_filename"
+              value="{{ img }}"
+              hidden
+            />
+            <button type="submit" class="btn btn-dark mt-2 del-button">
+              &times;
+            </button>
+          </form>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <!-- <div
+    class="download-bar d-flex justify-content-around bg-body-secondary p-3 fixed-bottom"
+  >
+    <p class="collection-download">Download your collection as zip</p>
+    <form action="/download" method="post">
+      <button class="btn btn-outline-dark">Download</button>
+    </form>
+  </div> -->
+</main>
+{% endblock %}

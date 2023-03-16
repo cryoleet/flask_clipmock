@@ -1,0 +1,23 @@
+{% extends "layout.html" %} {% block title %} credits {% endblock %} {% block
+body %}
+<main>
+  <div class="container-md">
+    <table class="table table-striped mt-3">
+      <thead>
+        <tr>
+          <th>IMAGE</th>
+          <th>SOURCE</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for key, value in credits.items() %}
+        <tr>
+          <td>{{ key }}</td>
+          <td class="credit-links">{{ value|safe }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</main>
+{% endblock %}

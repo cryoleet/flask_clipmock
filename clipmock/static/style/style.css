@@ -1,0 +1,45 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+@media only screen and (max-width: 600px) {
+  .collection-download {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .collection-download {
+    font-size: 25px;
+  }
+}
+
+.img-parent {
+  position: relative;
+}
+
+.del-button {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  /* right: -10px; */
+  background-color: black;
+  border-radius: 50%;
+  color: white;
+  border: 1px solid white;
+  /* opacity: 1; */
+}
+
+.del-button:hover {
+  border: 1px solid white;
+}
+
+.credit-links a {
+  color: black;
+}
