@@ -1,6 +1,6 @@
 # CLIPMOCK
 
-#### Video Demo: <URL HERE>
+#### Video Demo: https://youtu.be/ZW6G-R8MK-8
 
 #### Description:
 
