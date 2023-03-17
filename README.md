@@ -33,59 +33,62 @@ The resulting image is the final mockup which is saved in after directory.
 - templates/
   contains html files for respective pages.
 
--static/
--before/
-contains raw mockup-images
--subjects/
-contains subject-images
--backgrounds/
-contains background-images
--after/
-contains final generated mockups
--fonts/
-contains ttf font files used for business cards
--index/
-conains images used in index page for animation
--script/
-contains javascript files for respective templates, script.js is common for all templates.
--style/
-contains single css file common for all templates.
+- static/
 
--collection.zip
-zip file that is written to and finally sent when user the downloads their collection.
+  - before/
+    contains raw mockup-images
+  - subjects/
+    contains subject-images
+  - backgrounds/
+    contains background-images
+  - after/
+    contains final generated mockups
+  - fonts/
+    contains ttf font files used for business cards
+  - index/
+    conains images used in index page for animation
+  - script/
+    contains javascript files for respective templates, script.js is common for all templates.
+  - style/
+    contains single css file common for all templates.
 
--\_\_init\_\_.py
-initialization file for the package, contains app and db initialization
+- collection.zip
+  zip file that is written to and finally sent when user the downloads their collection.
 
--constants.py
-1.APPAREL - {
-base-img-name : [max size of design in px , position to be pasted - (x, y)]
-}
-base-img-name is the name with which the corresponding images stored in before, after, subjects, background directories
+- \_\_init\_\_.py
+  initialization file for the package, contains app and db initialization
 
-2.OBJECTS - same as APPAREL
+- constants.py
 
-3.BCARDS - {
-form-element : [position to pasted (x, y), fill color (R, G, B, A), font weight (H for heavy and T for thin)]
-}
-_exception:_
-qrcode : [position to pasted(x, y)]
-_note:_
-Since each business card has two corresponding images 'less' and 'more':
-if form-element starts with less\_ it means it should be drawn in 'less' image or flip side of the business card, here 'less' indicates the side of the card with less details
-else the form-element should be draw in 'more' image.
+  - APPAREL = {
+    base-img-name : [max size of design in px , position to be pasted - (x, y)]
+    }
+    base-img-name is the name with which the corresponding images stored in before, after, subjects, background directories
 
--helpers.py
-contains helper functions which are used in routes.py
-1.responsive_font - to scale the text as per its length in business cards so it doesn't overflow the perimeter
-2.get_dominant_color - used in mockup to apply appropriate blend mode
-3.mockup (for apparel and objects) - to blend design into the mockup image with attributes provided in constants.py
+  - OBJECTS - same as APPAREL
 
--models.py
-contains sqlalchemy db models
+  - BCARDS = {
+    form-element : [position to pasted (x, y), fill color (R, G, B, A), font weight (H for heavy and T for thin)]
+    }
+    _exception:_
+    qrcode : [position to pasted(x, y)]
+    _note:_
+    Since each business card has two corresponding images 'less' and 'more':
+    if form-element starts with less\_ it means it should be drawn in 'less' image or flip side of the business card, here 'less' indicates the side of the card with less details
+    else the form-element should be draw in 'more' image.
 
--routes.py
-contains functions binded to URL routes
+- helpers.py
+  contains helper functions which are used in routes.py
 
--run.py
-file used to run the app (python run.py)
+  - responsive_font - to scale the text as per its length in business cards so it doesn't overflow the perimeter
+  - get_dominant_color - used in mockup to apply appropriate blend mode
+  - mockup (for apparel and objects) - to blend design into the mockup image with attributes provided in constants.py
+
+- models.py
+  contains sqlalchemy db models
+
+- routes.py
+  contains functions binded to URL routes
+
+- run.py
+  file used to run the app (python run.py)
